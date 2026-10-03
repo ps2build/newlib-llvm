@@ -34,6 +34,10 @@ extern __IMPORT char *program_invocation_short_name;
 
 #define __errno_r(ptr) _REENT_ERRNO(ptr)
 
+#if defined(__ps2sdk__) && !defined(__LINUX_ERRNO_EXTENSIONS__)
+#define __LINUX_ERRNO_EXTENSIONS__ 1
+#endif
+
 #define	EPERM 1		/* Not owner */
 #define	ENOENT 2	/* No such file or directory */
 #define	ESRCH 3		/* No such process */
@@ -84,6 +88,10 @@ extern __IMPORT char *program_invocation_short_name;
 #endif
 #define	EDEADLK 45	/* Deadlock */
 #define	ENOLCK 46	/* No lock */
+#ifdef __ps2sdk__
+#define	EFORMAT 47	/* Bad format */
+#define	EUNSUP 48	/* Unsupported */
+#endif
 #ifdef __LINUX_ERRNO_EXTENSIONS__
 #define EBADE 50	/* Invalid exchange */
 #define EBADR 51	/* Invalid request descriptor */
