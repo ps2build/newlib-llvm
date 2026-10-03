@@ -378,7 +378,7 @@ extern "C" {
  * Unsupported features are commented out.
  */
 
-#ifdef __rtems__
+#if defined(__rtems__) || defined(__ps2sdk__)
 /* #define _POSIX_JOB_CONTROL		1 */
 /* #define _POSIX_SAVED_IDS		1 */
 #define _POSIX_VERSION			199309L
